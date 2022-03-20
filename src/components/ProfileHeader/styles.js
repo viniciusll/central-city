@@ -5,7 +5,7 @@ import { theme } from '../../styles/theme';
 export const styles = StyleSheet.create({
   container: {
     width: '100%',
-    paddingTop: getStatusBarHeight() + 58,
+    paddingTop: getStatusBarHeight() + 50,
     paddingHorizontal: 24,
     paddingBottom: 24,
   },

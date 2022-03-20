@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ScrollView } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { MaterialIcons, Feather } from '@expo/vector-icons';
 
 import { ProfileHeader } from '../../components/ProfileHeader';
 import { Avatar } from '../../components/Avatar';
 import { Button } from '../../components/Button';
+import { ButtonSetup } from '../../components/ButtonSetup';
 
 import { styles } from './styles';
 import { theme } from '../../styles/theme';
@@ -15,10 +16,61 @@ export function Profile() {
 
   async function handleLogout() {
     navigation.navigate('SignIn');
-  }
+  };
+
+  const setup = [
+    {
+      id: '1',
+      name: 'Mouse',
+      description: 'Razer Deathadder Essential: 6400 DPI',
+      userId: '1',
+    },
+    {
+      id: '2',
+      name: 'Keyboard',
+      description: 'Razer Blackwidow V3 Pro',
+      userId: '1',
+    },
+    {
+      id: '3',
+      name: 'Headphones',
+      description: 'Razer Kraken X',
+      userId: '1',
+    },
+    {
+      id: '4',
+      name: 'Monitor',
+      description: 'AOC Hero 24',
+      userId: '1',
+    },
+    {
+      id: '5',
+      name: 'Processor',
+      description: 'Intel Core i7-8700K',
+      userId: '1',
+    },
+    {
+      id: '6',
+      name: 'Motherboard',
+      description: 'ASUS TUF Gaming - X570-Plus',
+      userId: '1',
+    },
+    {
+      id: '7',
+      name: 'Video card',
+      description: 'Nvidia GeForce GTX 1650 OC',
+      userId: '1',
+    },
+    {
+      id: '8',
+      name: 'Ram',
+      description: 'Corsair Vengeance 16GB',
+      userId: '1',
+    }
+  ];
 
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
       <ProfileHeader />
 
       <View style={styles.content}>
@@ -79,6 +131,16 @@ export function Profile() {
             Setup
           </Text>
         </View>
+        <View style={styles.setupItems}>
+            {setup.map(item => (
+              <ButtonSetup
+                title={item.name}
+                description={item.description}
+                style={{ marginBottom: 10 }}
+                key={item.id}
+              />
+            ))}
+          </View>
 
         <Button
           title="Desconectar"
@@ -86,6 +148,6 @@ export function Profile() {
           onPress={handleLogout}
         />
       </View>
-    </View>
+    </ScrollView>
   );
 }
