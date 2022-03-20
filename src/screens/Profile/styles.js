@@ -63,6 +63,12 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     marginLeft: 8,
   },
+  setupItems: {
+    display: 'flex',
+    flexDirection: 'column',
+    marginTop: 10,
+    marginBottom: 10,
+  },
   info: {
     alignItems: 'center'
   },
